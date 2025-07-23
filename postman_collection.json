@@ -1,0 +1,59 @@
+{
+  "info": {
+    "name": "NestJS MongoDB JWT API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"login\": \"alice\",\n  \"password\": \"password1\"\n}"
+        },
+        "url": { "raw": "http://localhost:3000/auth/register", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["auth", "register"] }
+      }
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"login\": \"alice\",\n  \"password\": \"password1\"\n}"
+        },
+        "url": { "raw": "http://localhost:3000/auth/login", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["auth", "login"] }
+      }
+    },
+    {
+      "name": "Validate JWT",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{jwt}}" }
+        ],
+        "url": { "raw": "http://localhost:3000/auth/validate", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["auth", "validate"] }
+      }
+    },
+    {
+      "name": "Get Items (Paginated)",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{jwt}}" }
+        ],
+        "url": { "raw": "http://localhost:3000/items?page=1&limit=2", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["items"], "query": [ { "key": "page", "value": "1" }, { "key": "limit", "value": "2" } ] }
+      }
+    }
+  ],
+  "variable": [
+    { "key": "jwt", "value": "" }
+  ]
+} 
